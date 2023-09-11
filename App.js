@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import RadioForm from 'react-native-simple-radio-button';
 import { Picker } from '@react-native-picker/picker';
 
@@ -33,11 +33,12 @@ export default function App() {
     setCalories(result)
    }
 
-  }
+  
   return (
     <View style={styles.container}>
-      <Text>Weight</Text>
       <View style={styles.field}>
+      <Text>Weight</Text>
+      
       <TextInput
          onChangeText={text => setWeight(text)}
          placeholder='in kilograms'
@@ -75,10 +76,11 @@ export default function App() {
     <View style={styles.field}>
       <Text>{calories.toFixed(0)}</Text>
       </View>
-      <Button title="Calculate" />
+      <Button title="Calculate"
+      onPress={calculate} />
     </View>
  );
-
+}
 
 const styles = StyleSheet.create({
   container: {
